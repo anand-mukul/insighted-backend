@@ -27,6 +27,7 @@
     "@socket.io/cluster-adapter": "^0.2.2",
     "@socket.io/sticky": "^1.0.4",
     "axios": "^1.8.4",
+    "bcryptjs": "^3.0.2",
     "cloudinary": "^2.6.0",
     "compression": "^1.8.0",
     "cookie-parser": "^1.4.7",
