@@ -11,7 +11,7 @@ const summarizeText = async (text) => {
             {
                 contents: [{
                     parts: [{
-                        text: `Please summarize this transcript in clear, concise bullet points: ${text.substring(0, 30000)}`
+                        text: `Please summarize this transcript in clear, concise bullet points: ${text}`
                     }]
                 }],
                 safetySettings: [{
