@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 
 app.options("*", cors());
 app.use("/api/v1", summaryRoutes);
-app.use("/api/v1", userRoutes);
+app.use("/api/v1/user", userRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

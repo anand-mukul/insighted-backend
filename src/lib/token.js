@@ -22,4 +22,4 @@ const generateAccessAndRefreshTokens = async (userId, remember = false) => {
   }
 };
 
-export { generateAccessAndRefreshTokens };s
+export { generateAccessAndRefreshTokens };
