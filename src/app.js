@@ -1,5 +1,6 @@
 import cors from "cors";
 import summaryRoutes from "./routes/summary.route.js";
+import userRoutes from "./routes/user.route.js";
 import express from "express";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
@@ -43,6 +44,7 @@ app.use((req, res, next) => {
 
 app.options("*", cors());
 app.use("/api/v1", summaryRoutes);
+app.use("/api/v1", userRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

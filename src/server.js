@@ -6,6 +6,7 @@ import { initWebSocket } from "./utils/websocket.js";
 import { setupMaster } from "@socket.io/sticky";
 import { createAdapter } from "@socket.io/cluster-adapter";
 import "dotenv/config";
+import connectDB from "./lib/db.js";
 
 const PORT = parseInt(process.env.PORT, 10) || 5000;
 const isProduction = process.env.NODE_ENV === "production";
@@ -72,6 +73,8 @@ if (cluster.isPrimary) {
   const server = http.createServer(app);
 
   initWebSocket(server, true);
+
+  connectDB();
 
   server.listen(0, () => {
     console.log(
