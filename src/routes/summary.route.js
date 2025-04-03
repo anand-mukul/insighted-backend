@@ -1,6 +1,7 @@
 import { Router } from "express";
 import rateLimit from "express-rate-limit";
 import { summaryController } from "../controllers/summary.controller.js";
+import { verifyJWT } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
@@ -14,6 +15,6 @@ const apiLimiter = rateLimit({
 
 router.use(apiLimiter);
 
-router.post("/summarize", summaryController);
+router.route("/generate-summary").post(verifyJWT, summaryController);
 
 export default router;

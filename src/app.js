@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/v1/user", userRoutes);
-app.use("/api/v1", summaryRoutes);
+app.use("/api/v1/summary", summaryRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

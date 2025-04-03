@@ -20,6 +20,14 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    refreshToken: {
+      type: String,
+    },
+    summaryUrl: [
+      {
+        type: String,
+      },
+    ]
   },
   { timestamps: true }
 );
