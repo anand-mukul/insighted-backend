@@ -2,13 +2,11 @@ import { User } from "../models/user.model.js";
 import { ApiError } from "../utils/lib.js";
 
 
-const generateAccessAndRefreshTokens = async (userId, remember = false) => {
+const generateAccessAndRefreshTokens = async (userId) => {
   try {
     const user = await User.findById(userId);
-    const accessToken = admin.generateAccessToken();
-    const refreshToken = admin.generateRefreshToken(
-      remember ? process.env.REFRESH_TOKEN_REMEMBER_EXPIRY : undefined
-    );
+    const accessToken = user.generateAccessToken();
+    const refreshToken = user.generateRefreshToken();
     
     admin.refreshToken = refreshToken;
     await admin.save({ validateBeforeSave: false });
