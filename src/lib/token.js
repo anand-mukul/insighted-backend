@@ -1,9 +1,10 @@
-import { Admin } from "../models/admin.model.js";
-import { ApiError } from "./utils.js";
+import { User } from "../models/user.model.js";
+import { ApiError } from "../utils/lib.js";
 
-const generateAccessAndRefreshTokens = async (adminId, remember = false) => {
+
+const generateAccessAndRefreshTokens = async (userId, remember = false) => {
   try {
-    const admin = await Admin.findById(adminId);
+    const user = await User.findById(userId);
     const accessToken = admin.generateAccessToken();
     const refreshToken = admin.generateRefreshToken(
       remember ? process.env.REFRESH_TOKEN_REMEMBER_EXPIRY : undefined
