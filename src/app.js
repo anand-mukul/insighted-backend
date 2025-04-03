@@ -22,6 +22,7 @@ app.use(
   })
 );
 
+app.options("*", cors());
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(express.static("public", { maxAge: 31557600000 }));
@@ -33,9 +34,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.options("*", cors());
-app.use("/api/v1", summaryRoutes);
 app.use("/api/v1/user", userRoutes);
+app.use("/api/v1", summaryRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
