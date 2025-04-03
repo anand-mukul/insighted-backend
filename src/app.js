@@ -13,18 +13,9 @@ app.set("trust proxy", 1);
 app.use(helmet());
 app.use(compression());
 
-const corsOrigins = process.env.CORS_ORIGIN
-  ? process.env.CORS_ORIGIN.split(",")
-  : ["http://localhost:3000"];
-
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || corsOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-      return callback(new Error("Not allowed by CORS"));
-    },
+    origin: "*",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
